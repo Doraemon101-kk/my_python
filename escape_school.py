@@ -57,8 +57,13 @@ class Courtyard(Scene):
             print("花盆下挖开，你逃了出来")
             return 'temple_fair'
         else:
-            return 'detention'
+            return 'gate'
         
+class gate(Scene):
+    def enter(self):
+        print("你来到门口附近，旺财朝你大吠，先生闻声而来。")
+        return 'detention'
+
 class TempleFair(Scene):
 
     def enter(self):
@@ -72,6 +77,7 @@ class Map(object):
         self.scenes = {
             'school_room': SchoolRoom(),
             'courtyard': Courtyard(),
+            'gate': gate(),
             'temple_fair': TempleFair(),
             'detention': Detention()
         }
